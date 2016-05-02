@@ -44,10 +44,6 @@ class ViewController: UIViewController {
         
     }
     
-    // Уменьшаем счетчик по нажатию на любую область экрана
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-    }
     @IBOutlet weak var begin: UIButton!
     @IBAction func beginButton(sender: UIButton) {
         buttonAnimation(begin)

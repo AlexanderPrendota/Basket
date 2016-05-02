@@ -29,6 +29,7 @@
                                 <state key="normal" title="Новая игра!"/>
                                 <connections>
                                     <action selector="beginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ynF-z9-Jim"/>
+                                    <segue destination="H5x-CQ-Ihe" kind="modal" id="VZl-B3-0Wn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-334" y="303"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="AO3-H8-TIo">
             <objects>
-                <viewController id="H5x-CQ-Ihe" sceneMemberID="viewController">
+                <viewController id="H5x-CQ-Ihe" customClass="SecondViewController" customModule="Backet" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yYz-my-RzR"/>
                         <viewControllerLayoutGuide type="bottom" id="NKH-Oe-x7w"/>
@@ -54,12 +55,38 @@
                     <view key="view" contentMode="scaleToFill" id="d5F-2o-iV2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFE-SH-MSq">
+                                <rect key="frame" x="95" y="14" width="149" height="35"/>
+                                <state key="normal" title="Вернуться в меню! "/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="modal" id="xL2-yK-HaH"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="8c17708dccadf4eb58640bab2f89693b" translatesAutoresizingMaskIntoConstraints="NO" id="fZO-5Y-u5v">
+                                <rect key="frame" x="10" y="140" width="300" height="300"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-Rx-txD">
+                                <rect key="frame" x="95" y="57" width="178" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HOE-NP-O35"/>
+                    <connections>
+                        <outlet property="countLabel" destination="LPK-Rx-txD" id="dDn-AH-SI9"/>
+                        <outlet property="imageMain" destination="fZO-5Y-u5v" id="ffx-tC-LwU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6o-kv-sYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="39" y="303"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="8c17708dccadf4eb58640bab2f89693b" width="300" height="300"/>
+    </resources>
 </document>

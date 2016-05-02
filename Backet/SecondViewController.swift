@@ -10,6 +10,8 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var imageMain: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,16 +22,16 @@ class SecondViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Уменьшаем счетчик по нажатию на любую область экрана
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let count = Int(countLabel.text!)! - 1
+        countLabel.text = String(count)
+        
+        let bounds = imageMain.bounds
+        UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options:[], animations: {
+            self.imageMain.bounds = CGRect(x: bounds.origin.x - 20, y: bounds.origin.y, width: bounds.size.width + 60, height: bounds.size.height)
+            //self.contin.enabled = false
+            }, completion: nil)
     }
-    */
-
 }
