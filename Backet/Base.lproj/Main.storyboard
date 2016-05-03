@@ -17,27 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnr-yR-fwY">
-                                <rect key="frame" x="106" y="98" width="108" height="45"/>
-                                <state key="normal" title="Продолжить!"/>
-                                <connections>
-                                    <action selector="continueButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="80i-Nr-WNh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viC-h1-s4G">
-                                <rect key="frame" x="106" y="429" width="108" height="45"/>
-                                <state key="normal" title="Новая игра!"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viC-h1-s4G">
+                                <rect key="frame" x="28" y="254" width="264" height="60"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="44"/>
+                                <state key="normal" title="Играть">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="beginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ynF-z9-Jim"/>
-                                    <segue destination="H5x-CQ-Ihe" kind="modal" id="VZl-B3-0Wn"/>
+                                    <segue destination="H5x-CQ-Ihe" kind="modal" identifier="getGame" id="9Jb-UG-wTd"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="begin" destination="viC-h1-s4G" id="wX5-D2-kDd"/>
-                        <outlet property="contin" destination="Pnr-yR-fwY" id="QYq-QV-wqc"/>
+                        <outlet property="begin" destination="viC-h1-s4G" id="eA3-80-MtY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,22 +52,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFE-SH-MSq">
-                                <rect key="frame" x="95" y="14" width="149" height="35"/>
-                                <state key="normal" title="Вернуться в меню! "/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="xL2-yK-HaH"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="8c17708dccadf4eb58640bab2f89693b" translatesAutoresizingMaskIntoConstraints="NO" id="fZO-5Y-u5v">
-                                <rect key="frame" x="10" y="140" width="300" height="300"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-Rx-txD">
-                                <rect key="frame" x="95" y="57" width="178" height="61"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPK-Rx-txD">
+                                <rect key="frame" x="98" y="99" width="124" height="58"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="50"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="8c17708dccadf4eb58640bab2f89693b" translatesAutoresizingMaskIntoConstraints="NO" id="fZO-5Y-u5v">
+                                <rect key="frame" x="10" y="174" width="300" height="300"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFE-SH-MSq">
+                                <rect key="frame" x="73" y="36" width="163" height="48"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="27"/>
+                                <state key="normal" title="Вернуться!">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="returnButton:" destination="H5x-CQ-Ihe" eventType="touchUpInside" id="PPa-zR-7IW"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" id="bHL-Re-Dvf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

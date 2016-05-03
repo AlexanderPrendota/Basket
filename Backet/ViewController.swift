@@ -10,13 +10,12 @@ import UIKit
 import Foundation
 
 class ViewController: UIViewController {
-  
+    
+    @IBOutlet weak var testlabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        let background = UIImage(named: "bg1")
-        self.view.backgroundColor = UIColor(patternImage: background!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,33 +26,32 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        contin.alpha = 0.0
         begin.alpha = 0.0
         
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        UIView.animateWithDuration(0.5, delay: 0.4, options: .CurveEaseOut, animations: {
-            self.contin.alpha = 1
-            }, completion: nil)
         UIView.animateWithDuration(0.5, delay: 0.4, options: .CurveEaseOut, animations: {
             self.begin.alpha = 1
-            }, completion: nil)
-        
+            }, completion: nil)        
     }
     
     @IBOutlet weak var begin: UIButton!
     @IBAction func beginButton(sender: UIButton) {
         buttonAnimation(begin)
-    }
-    
-    @IBOutlet weak var contin: UIButton!
-    @IBAction func continueButton(sender: UIButton) {
-        buttonAnimation(contin)
+        let alert = UIAlertController(title: "Basket", message: "Поехали?", preferredStyle: UIAlertControllerStyle.Alert)
+        let cancel = UIAlertAction(title: "Отмена", style: UIAlertActionStyle.Cancel, handler: nil)
+        let buttonOK = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
+        self.performSegueWithIdentifier("getGame", sender: sender)
+        }
+      
+        alert.addAction(buttonOK)
+        alert.addAction(cancel)
+        self.presentViewController(alert, animated: true, completion: nil)
         
     }
+
     // Анимация трясущейся кнопки. 
     func buttonAnimation(button : UIButton) {
         let bounds = button.bounds
@@ -63,4 +61,6 @@ class ViewController: UIViewController {
             }, completion: nil)
         
     }
+    
+
 }
