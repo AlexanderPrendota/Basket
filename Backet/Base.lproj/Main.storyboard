@@ -25,7 +25,7 @@
                                 </state>
                                 <connections>
                                     <action selector="beginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ynF-z9-Jim"/>
-                                    <segue destination="H5x-CQ-Ihe" kind="modal" identifier="getGame" id="9Jb-UG-wTd"/>
+                                    <segue destination="H5x-CQ-Ihe" kind="modal" identifier="getGame" modalTransitionStyle="partialCurl" id="9Jb-UG-wTd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-334" y="303"/>
+            <point key="canvasLocation" x="-536" y="47"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="AO3-H8-TIo">
@@ -70,7 +70,18 @@
                                 </state>
                                 <connections>
                                     <action selector="returnButton:" destination="H5x-CQ-Ihe" eventType="touchUpInside" id="PPa-zR-7IW"/>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="bHL-Re-Dvf"/>
+                                    <segue destination="BYZ-38-t0r" kind="modal" identifier="getMain" id="bHL-Re-Dvf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81k-um-QB0">
+                                <rect key="frame" x="91" y="496" width="138" height="37"/>
+                                <fontDescription key="fontDescription" name="AppleColorEmoji" family="Apple Color Emoji" pointSize="15"/>
+                                <state key="normal" title="УРА! ПОБЕДИЛИ!">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="finalButton:" destination="H5x-CQ-Ihe" eventType="touchUpInside" id="L8j-Un-Rhd"/>
+                                    <segue destination="LC5-VP-KbW" kind="modal" identifier="getFinal" id="yP0-nE-JcL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -79,12 +90,39 @@
                     <navigationItem key="navigationItem" id="HOE-NP-O35"/>
                     <connections>
                         <outlet property="countLabel" destination="LPK-Rx-txD" id="dDn-AH-SI9"/>
+                        <outlet property="finalBut" destination="81k-um-QB0" id="ecH-v5-ss2"/>
                         <outlet property="imageMain" destination="fZO-5Y-u5v" id="ffx-tC-LwU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g6o-kv-sYa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="39" y="303"/>
+            <point key="canvasLocation" x="-163" y="47"/>
+        </scene>
+        <!--Final View Controller-->
+        <scene sceneID="AiK-x5-lJx">
+            <objects>
+                <viewController id="LC5-VP-KbW" customClass="FinalViewController" customModule="Backet" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rp7-Xc-1DV"/>
+                        <viewControllerLayoutGuide type="bottom" id="2M8-zc-3O6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="J9Y-VC-GZq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Переход прошел успешно" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyp-cf-bm1">
+                                <rect key="frame" x="55" y="69" width="211" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fB0-9h-ZrY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228" y="47"/>
         </scene>
     </scenes>
     <resources>
