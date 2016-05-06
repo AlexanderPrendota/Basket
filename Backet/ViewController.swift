@@ -11,11 +11,19 @@ import Foundation
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var testlabel: UILabel!
+    @IBOutlet weak var rightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftConstraint: NSLayoutConstraint!
+
+    
+     private var isLeft = false
+    private var isLeft1 = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+          NSTimer.scheduledTimerWithTimeInterval(0.4, target: self, selector: #selector(updateSteps(_:)), userInfo: nil, repeats: true)
+      
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,17 +32,15 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        begin.alpha = 0.0
-        
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         UIView.animateWithDuration(0.5, delay: 0.4, options: .CurveEaseOut, animations: {
             self.begin.alpha = 1
-            }, completion: nil)        
+            }, completion: nil)
+        
+        
+        
+        
     }
     
     @IBOutlet weak var begin: UIButton!
@@ -60,6 +66,23 @@ class ViewController: UIViewController {
             //self.contin.enabled = false
             }, completion: nil)
         
+    }
+    
+    func updateSteps(timer: NSTimer) {
+        if isLeft1 {
+            rightConstraint.constant = leftConstraint.constant + 20
+        } else {
+            leftConstraint.constant = rightConstraint.constant + 20
+        }
+        
+        if leftConstraint.constant > view.frame.height || rightConstraint.constant > view.frame.height {
+            timer.invalidate()
+        }
+        
+        isLeft1 = !isLeft1
+        UIView.animateWithDuration(0.2) {
+            self.view.layoutIfNeeded()
+        }
     }
     
 
