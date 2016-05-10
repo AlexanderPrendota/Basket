@@ -15,8 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var leftConstraint: NSLayoutConstraint!
 
     
-     private var isLeft = false
-    private var isLeft1 = false
+    private var isLeft = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,25 +36,12 @@ class ViewController: UIViewController {
         UIView.animateWithDuration(0.5, delay: 0.4, options: .CurveEaseOut, animations: {
             self.begin.alpha = 1
             }, completion: nil)
-        
-        
-        
-        
     }
     
     @IBOutlet weak var begin: UIButton!
     @IBAction func beginButton(sender: UIButton) {
         buttonAnimation(begin)
-        let alert = UIAlertController(title: "Basket", message: "Поехали?", preferredStyle: UIAlertControllerStyle.Alert)
-        let cancel = UIAlertAction(title: "Отмена", style: UIAlertActionStyle.Cancel, handler: nil)
-        let buttonOK = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (action) -> Void in
         self.performSegueWithIdentifier("getGame", sender: sender)
-        }
-      
-        alert.addAction(buttonOK)
-        alert.addAction(cancel)
-        self.presentViewController(alert, animated: true, completion: nil)
-        
     }
 
     // Анимация трясущейся кнопки. 
@@ -69,17 +55,17 @@ class ViewController: UIViewController {
     }
     
     func updateSteps(timer: NSTimer) {
-        if isLeft1 {
+        if isLeft {
             rightConstraint.constant = leftConstraint.constant + 20
         } else {
             leftConstraint.constant = rightConstraint.constant + 20
         }
         
-        if leftConstraint.constant > view.frame.height || rightConstraint.constant > view.frame.height {
-            timer.invalidate()
-        }
-        
-        isLeft1 = !isLeft1
+//        if leftConstraint.constant > view.frame.height || rightConstraint.constant > view.frame.height {
+//            timer.invalidate()
+//        }
+//        
+        isLeft = !isLeft
         UIView.animateWithDuration(0.2) {
             self.view.layoutIfNeeded()
         }

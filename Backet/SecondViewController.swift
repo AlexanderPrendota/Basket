@@ -33,17 +33,24 @@ class SecondViewController: UIViewController {
         countAll = NSUserDefaults.standardUserDefaults().integerForKey("launchCount")
         
         if countAll == 0 {
-            countAll = 100
+            self.countLabel.text = "Победа."
+            self.imageMain.image = UIImage(named: "win.jpg")
         }
         
-        countLabel.text = "\(countAll)"
-
-        
-        if  Int(countLabel.text!) <= 200{
+        if  Int(countLabel.text!) <= 9{
             self.imageMain.image = UIImage(named: "nope.jpg")
+        } else if Int(countLabel.text!) <= 7 {
+           self.imageMain.image = UIImage(named: "n1")
+        } else if Int(countLabel.text!) <= 5 {
+           self.imageMain.image = UIImage(named: "n2")
+        } else if Int(countLabel.text!) <= 3 {
+            self.imageMain.image = UIImage(named: "n3.jpg")
+        } else if Int(countLabel.text!) <= 1 {
+            self.imageMain.image = UIImage(named: "n4")
+        } else {
+             self.imageMain.image = UIImage(named: "kit.jpg")
         }
     
-       
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,17 +59,37 @@ class SecondViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        if countAll == 200 {
-            countAll -= 1
-            self.imageMain.image = UIImage(named: "nope.jpg")
-        } else if countAll == 0 {
-            finalBut.hidden = false
-            countLabel.text = "Ура! Котик вышел!"
-        } else {
-            countAll -= 1
-            countLabel.text = "\(countAll)"
             
+            if countAll == 9 {
+                countAll -= 1
+                self.imageMain.image = UIImage(named: "nope.jpg")
+                self.countLabel.text = "\(countAll)"
+            } else if countAll == 7 {
+                countAll -= 1
+                self.imageMain.image = UIImage(named: "n1")
+                self.countLabel.text = "\(countAll)"
+            } else if countAll == 5 {
+                countAll -= 1
+                self.imageMain.image = UIImage(named: "n2")
+                self.countLabel.text = "\(countAll)"
+            } else if countAll == 3 {
+                countAll -= 1
+                self.imageMain.image = UIImage(named: "n3.jpg")
+                self.countLabel.text = "\(countAll)"
+            } else if countAll == 1 {
+                countAll -= 1
+                self.imageMain.image = UIImage(named: "n4")
+                countLabel.text = "\(countAll)"
+            } else if countAll == 0 {
+                self.imageMain.image = UIImage(named: "win.jpg")
+                self.finalBut.hidden = false
+                self.countLabel.text = "Ура! Котик вышел!"
+            } else {
+                countAll -= 1
+                self.countLabel.text = "\(countAll)"
+            }
+        
+             
             // Анимация шатающийся картинки
             let bounds = imageMain.bounds
             UIView.animateWithDuration(1.0, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options:[], animations: {
@@ -82,7 +109,7 @@ class SecondViewController: UIViewController {
             self.view.addSubview(AnimationView)
             
             let duration = 2.0
-            let delay = NSTimeInterval(arc4random_uniform(1000)) / 1000 // Задержка от 0 до 2 секунд
+            let delay = NSTimeInterval(arc4random_uniform(1000)) / 1000 // Задержка от 0 до 1 секунд
             let options = UIViewAnimationOptions.CurveLinear
             UIView.animateWithDuration(duration, delay:delay, options:options, animations: {
                 
@@ -90,9 +117,9 @@ class SecondViewController: UIViewController {
                 }, completion: { animationFinished in AnimationView.removeFromSuperview() } )
             
             
-            }
-//        Для обновления счетчика.
-//        let count = 666
+        
+      //  Для обновления счетчика.
+//        let count = 10
 //        countLabel.text = "\(count)"
         
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -106,4 +133,5 @@ class SecondViewController: UIViewController {
        // self.performSegueWithIdentifier("getMain", sender: sender)
         self.dismissViewControllerAnimated(false, completion: nil)
     }
+
 }

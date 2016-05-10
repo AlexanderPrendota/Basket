@@ -61,11 +61,11 @@
 				752B6A941CD75B57005B8539 /* AppDelegate.swift */,
 				758CD2951CDB867A007250DC /* FinalViewController.swift */,
 				752B6AAE1CD7A900005B8539 /* SecondViewController.swift */,
-				758CD29B1CDCEBEE007250DC /* Main.storyboard */,
 				752B6A961CD75B57005B8539 /* ViewController.swift */,
+				758CD29B1CDCEBEE007250DC /* Main.storyboard */,
 				758CD2991CDC9689007250DC /* Assets.xcassets */,
-				752B6AA01CD75B57005B8539 /* Info.plist */,
 				758CD2971CDBB732007250DC /* nope.jpg */,
+				752B6AA01CD75B57005B8539 /* Info.plist */,
 			);
 			path = Backet;
 			sourceTree = "<group>";
